@@ -12,17 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Construct the About section dynamically with the new lists framework
     const aboutContainer = document.getElementById('about-content');
-    let aboutHtml = `<h2 style="font-size: 3rem; font-weight: 700; text-transform: uppercase; margin-bottom: 30px;">${portfolioData.about.title}</h2>
-                     <p style="font-size: 1.15rem; font-weight: 400; max-width: 800px; margin-bottom: 60px; line-height: 1.6;">${portfolioData.about.description}</p>`;
+    /* === 使用者請注意：若要更改 About 區塊的標題、內文顏色與大小，請修改下方的 style="..." 裡面的 CSS 數值 === * <h2> (標題)、<p> (內文) 以及 <li> (列表項目)*/
+    let aboutHtml = `<h2 style="font-size: 2rem; font-weight: 600; text-transform: uppercase; margin-bottom: 30px;">${portfolioData.about.title}</h2>
+                     <p style="font-size: 1rem; font-weight: 400; max-width: 800px; margin-bottom: 60px; line-height: 1.6;">${portfolioData.about.description}</p>`;
 
     const renderList = (title, items) => {
         if (!items || items.length === 0) return '';
+        /* === 若要修改各個列表（如工作經驗、學歷）的副標題與項目文字樣式，請修改下方的 style="..." === */
         let listStr = `<div style="margin-bottom: 40px; margin-right: 20px;">
-                          <h3 style="font-size: 0.9rem; font-weight: 600; color: #666; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 5px; display: inline-block;">${title}</h3>
+                          <h3 style="font-size: 1rem; font-weight: 400; color: #666; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 5px; display: inline-block;">${title}</h3>
                           <ul style="list-style: none; padding: 0;">`;
         items.forEach(item => {
-            listStr += `<li style="font-size: 1.05rem; font-weight: 500; margin-bottom: 12px; color: #222;">${item}</li>`;
-        });
+            listStr += `<li style="font-size: 1rem; font-weight: 400; margin-bottom: 12px; color: #000000ff;">${item}</li>`;
+        });/*更動學歷的內文*/
         listStr += `</ul></div>`;
         return listStr;
     };
@@ -63,6 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
             el.addEventListener('mouseleave', removeCursorHover);
         });
     }
+
+    // Custom Smooth Scroll for Anchor Links
+    document.querySelectorAll('.nav-link, .logo').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 1000; // ★ 您可以修改這個毫秒數來決定網頁滑動的速度 (1200 = 1.2秒)
+                    let start = null;
+
+                    window.requestAnimationFrame(function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+
+                        // Easing function (easeInOutCubic) 給予滑順的加減速物理感
+                        const easeInOutCubic = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+                        const easeProgress = easeInOutCubic(Math.min(progress / duration, 1));
+
+                        window.scrollTo(0, startPosition + distance * easeProgress);
+                        if (progress < duration) window.requestAnimationFrame(step);
+                    });
+                }
+            }
+        });
+    });
 
     // 3. Scramble Effect (Updated for non-sequential, random completion)
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
@@ -124,19 +156,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = document.createElement('div');
         item.className = 'grid-item';
         item.innerHTML = `
-            <img src="${work.image}" class="grid-image" alt="${work.title}" loading="lazy">
+            <div class="grid-image-container">
+                <img src="${work.image}" class="grid-image-base" alt="${work.title}" loading="lazy">
+                ${work.imageHover ? `<img src="${work.imageHover}" class="grid-image-hover" alt="${work.title} hover" loading="lazy">` : ''}
+            </div>
             <div class="grid-info">
                 <h3>${work.title}</h3>
                 <p>${work.category}</p>
             </div>
         `;
-
-        // Dynamic image hover effect
-        const imgEl = item.querySelector('.grid-image');
-        if (work.imageHover) {
-            item.addEventListener('mouseenter', () => imgEl.src = work.imageHover);
-            item.addEventListener('mouseleave', () => imgEl.src = work.image);
-        }
 
         item.addEventListener('mouseenter', addCursorHover);
         item.addEventListener('mouseleave', removeCursorHover);
@@ -166,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentLbIndex = 0;
 
                 updateLightboxUI();
-                lightbox.classList.remove('hidden');
+                lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
 
@@ -233,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentLbIndex = srcIdx > -1 ? srcIdx : 0;
 
                 updateLightboxUI();
-                lightbox.classList.remove('hidden');
+                lightbox.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
@@ -252,30 +280,36 @@ document.addEventListener('DOMContentLoaded', () => {
         currentProjectIndex = index;
         updateGalleryContent();
         galleryOverlay.classList.remove('hidden');
+        galleryOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
     };
 
     // Close Modal logic
     const closeGallery = () => {
-        galleryOverlay.classList.add('hidden');
+        galleryOverlay.classList.remove('active');
         document.body.style.overflow = '';
     };
     galleryClose.addEventListener('click', closeGallery);
 
     const closeLightbox = () => {
-        lightbox.classList.add('hidden');
-        if (galleryOverlay.classList.contains('hidden')) {
+        lightbox.classList.remove('active');
+        if (!galleryOverlay.classList.contains('active')) {
             document.body.style.overflow = '';
         }
     };
     lightboxClose.addEventListener('click', closeLightbox);
     document.getElementById('lightbox-bg').addEventListener('click', closeLightbox);
 
-    // Keyboard Navigation
+    // ESC Key to close
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('hidden')) {
-            if (e.key === 'Escape') closeLightbox();
-            else if (e.key === 'ArrowLeft') {
+        if (e.key === 'Escape') {
+            if (lightbox.classList.contains('active')) {
+                closeLightbox();
+            } else if (galleryOverlay.classList.contains('active')) {
+                closeGallery();
+            }
+        } else if (lightbox.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
                 if (currentLbImages.length > 0) {
                     currentLbIndex = (currentLbIndex - 1 + currentLbImages.length) % currentLbImages.length;
                     updateLightboxUI();
@@ -286,10 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentLbIndex = (currentLbIndex + 1) % currentLbImages.length;
                     updateLightboxUI();
                 }
-            }
-        } else if (!galleryOverlay.classList.contains('hidden')) {
-            if (e.key === 'Escape') {
-                closeGallery();
             }
         }
     });

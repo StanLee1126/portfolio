@@ -1,18 +1,18 @@
 const portfolioData = {
     site: {
-        logoText: "SAL ARCH",
+        logoText: "Stan Lee Archive",
         metaTitle: "Architecture Portfolio",
         email: "a2199547@yahoo.com",
         instagramUrl: "https://instagram.com/stanlee_an/",
         instagramHandle: "@stanlee_an"
     },
     hero: {
-        title: "This is an degital architve for Stan Lee",
-        subtitle: "Do what is meaningful"
+        title: "This is an digital architve for Stan Lee",
+        subtitle: "Here is the space for a good motto."
     },
     about: {
         title: "Stan Lee",
-        description: "Raised in Dongshi, Taichung. Leave in Tainan now.\nYear 4 in architecture program in NCKU.\nFavorite band is sunset rollercoaster.\nStart to run recently and fall in love with it",
+        description: "Raised in Dongshi, Taichung. Leave in Tainan now.<br>Year 4 in architecture program in NCKU.<br>Favorite band is sunset rollercoaster.<br>Start to run recently and fall in love with it.<br>Always explore the world with curiosity.",
         experience: [
             "2025 - 2026 / NIO+C / Architecture Intern",
             "2024 / OH Dear Studio / Design Intern",
@@ -31,28 +31,31 @@ const portfolioData = {
     images: [
         {
             title: "Gap",
-            cover: "./assets/photography_net/02.jpg",
+            cover: "./assets/photography_net/net_02.jpg",
             album: [
-                { src: "./assets/photography_net/02.jpg", caption: "明大前駅 2026" },
-                { src: "./assets/photography_net/01.jpg", caption: "明大前駅 2026" }
+                { src: "./assets/photography_net/net_02.jpg", caption: "明大前駅 2026" },
+                { src: "./assets/photography_net/net_01.jpg", caption: "明大前駅 2026" }
             ]
         },
         {
             title: "City of Lightness",
-            cover: "./assets/photography_look/01.jpg",
+            cover: "./assets/photography_look/look_01.jpg",
             album: [
-                { src: "./assets/photography_look/01.jpg", caption: "明大前駅 2026" },
-                { src: "./assets/photography_look/02.jpg", caption: "明大前駅 2026" },
-                { src: "./assets/photography_look/04.jpg", caption: "品川區 2026" },
-                { src: "./assets/photography_look/03.jpg", caption: "山梨縣 2026" }
+                { src: "./assets/photography_look/look_01.jpg", caption: "明大前駅 2026" },
+                { src: "./assets/photography_look/look_02.jpg", caption: "明大前駅 2026" },
+                { src: "./assets/photography_look/look_04.jpg", caption: "品川區 2026" },
+                { src: "./assets/photography_look/look_03.jpg", caption: "山梨縣 2026" }
             ]
         },
         {
-            title: "MINIMALIST FORMS",
-            cover: "./assets/model_img_1.jpeg",
+            title: "不 死",
+            cover: "./assets/photography_fuji/fuji_04.jpg",
             album: [
-                { src: "./assets/model_img_1.jpeg", caption: "Tokyo 2026" },
-                { src: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop", caption: "Light on Concrete" }
+                { src: "./assets/photography_fuji/fuji_04.jpg", caption: "山中湖 2026" },
+                { src: "./assets/photography_fuji/fuji_02.jpg", caption: "河口湖 2026" },
+                { src: "./assets/photography_fuji/fuji_01.jpg", caption: "河口湖 2026" },
+                { src: "./assets/photography_fuji/fuji_05.jpg", caption: "河口湖 2026" },
+                { src: "./assets/photography_fuji/fuji_03.jpg", caption: "山中湖 2026" }
             ]
         }
     ],
