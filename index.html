@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Changed font from Archivo to Inter as requested -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
+
     <script src="data.js"></script>
 </head>
+
 <body>
     <div class="custom-cursor" id="custom-cursor"></div>
 
@@ -36,12 +39,16 @@
         </section>
 
         <section id="works" class="works-section section">
-            <h2 style="font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 10px; color: #666;">Architecture</h2>
+            <h2
+                style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 10px; color: #000000;">
+                Architecture</h2>
             <div class="works-grid" id="works-grid"></div>
         </section>
 
         <section id="images" class="images-section section">
-            <h2 style="font-size: 1.5rem; text-transform: uppercase; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 10px; color: #666;">Photography</h2>
+            <h2
+                style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 10px; color: #000000;">
+                Image</h2>
             <div class="works-grid" id="images-grid"></div>
         </section>
 
@@ -52,7 +59,7 @@
 
         <section id="contact" class="contact-section section">
             <div class="contact-container">
-                <h2 style="font-size: 2.5rem; text-transform: uppercase; margin-bottom: 20px;">Contact</h2>
+                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px;">Contact</h2>
                 <div style="display: flex; flex-direction: column; gap: 15px;">
                     <a href="#" id="contact-email" class="contact-link">email@example.com</a>
                     <a href="#" id="contact-ig" class="contact-link" target="_blank">Instagram</a>
@@ -64,11 +71,11 @@
     <!-- Overlay: Works Detail Gallery -->
     <div id="gallery-overlay" class="gallery-overlay hidden">
         <div class="gallery-nav fixed-bar">
-            <button id="gallery-close" class="gallery-close">CLOSE [X]</button>
+            <button id="gallery-close" class="gallery-close">CLOSE X</button>
             <div id="gallery-nav-title" class="gallery-nav-title">TITLE</div>
-            <div id="gallery-counter" class="gallery-counter">1 / X</div>
+            <div id="gallery-counter" class="gallery-counter"></div>
         </div>
-        
+
         <div class="gallery-content" id="gallery-click-area">
             <!-- Dynamic Content goes here -->
         </div>
@@ -77,10 +84,11 @@
     <!-- Lightbox Popup: Left/Right Slider -->
     <div id="lightbox" class="lightbox-overlay hidden">
         <div class="lightbox-bg" id="lightbox-bg"></div>
-        
+
         <div class="gallery-nav fixed-bar transparent-bar">
-            <button id="lightbox-close" class="gallery-close">CLOSE [X]</button>
-            <div id="lightbox-title" class="gallery-nav-title" style="color: #111; font-size: 1rem; font-weight: 600;">TITLE</div>
+            <button id="lightbox-close" class="gallery-close">CLOSE X</button>
+            <div id="lightbox-title" class="gallery-nav-title" style="color: #111; font-size: 1rem; font-weight: 600;">
+                TITLE</div>
             <div class="gallery-counter"></div>
         </div>
 
@@ -90,10 +98,11 @@
         <div id="lightbox-right" class="lightbox-nav-zone lightbox-right">
             <span class="lightbox-arrow">&rarr;</span>
         </div>
-        
+
         <img src="" id="lightbox-img" class="lightbox-img">
     </div>
 
     <script src="app.js"></script>
 </body>
+
 </html>

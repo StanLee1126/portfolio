@@ -3,16 +3,16 @@ const portfolioData = {
         logoText: "SAL ARCH",
         metaTitle: "Architecture Portfolio",
         email: "a2199547@yahoo.com",
-        instagramUrl: "https://instagram.com/stanlee.an",
-        instagramHandle: "@stanlee.an"
+        instagramUrl: "https://instagram.com/stanlee_an/",
+        instagramHandle: "@stanlee_an"
     },
     hero: {
         title: "This is an degital architve for Stan Lee",
         subtitle: "Do what is meaningful"
     },
     about: {
-        title: "Stan Lee.",
-        description: "我是一名熱愛當代設計與空間哲學的建築設計師。專注於無襯線的純粹型態、光影變化，以及構築材料的真實性。在這個極簡的數位空間裡，我將展現對於結構與媒材交互作用的觀察與實踐。",
+        title: "Stan Lee",
+        description: "Raised in Dongshi, Taichung. Leave in Tainan now.\nYear 4 in architecture program in NCKU.\nFavorite band is sunset rollercoaster.\nStart to run recently and fall in love with it",
         experience: [
             "2025 - 2026 / NIO+C / Architecture Intern",
             "2024 / OH Dear Studio / Design Intern",
@@ -30,18 +30,28 @@ const portfolioData = {
     },
     images: [
         {
-            title: "URBAN LANDSCAPES",
-            cover: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=2070&auto=format&fit=crop",
+            title: "Gap",
+            cover: "./assets/photography_net/02.jpg",
             album: [
-                { src: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=2070&auto=format&fit=crop", caption: "Shibuya Crossing" },
-                { src: "https://images.unsplash.com/photo-1503899036067-0479d46d0a7a?q=80&w=1974&auto=format&fit=crop", caption: "Shinjuku Alleys" }
+                { src: "./assets/photography_net/02.jpg", caption: "明大前駅 2026" },
+                { src: "./assets/photography_net/01.jpg", caption: "明大前駅 2026" }
+            ]
+        },
+        {
+            title: "City of Lightness",
+            cover: "./assets/photography_look/01.jpg",
+            album: [
+                { src: "./assets/photography_look/01.jpg", caption: "明大前駅 2026" },
+                { src: "./assets/photography_look/02.jpg", caption: "明大前駅 2026" },
+                { src: "./assets/photography_look/04.jpg", caption: "品川區 2026" },
+                { src: "./assets/photography_look/03.jpg", caption: "山梨縣 2026" }
             ]
         },
         {
             title: "MINIMALIST FORMS",
             cover: "./assets/model_img_1.jpeg",
             album: [
-                { src: "https://images.unsplash.com/photo-1490204780516-fb4c2db1eb6f?q=80&w=2070&auto=format&fit=crop", caption: "Abstract Geometry" },
+                { src: "./assets/model_img_1.jpeg", caption: "Tokyo 2026" },
                 { src: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop", caption: "Light on Concrete" }
             ]
         }
