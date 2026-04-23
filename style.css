@@ -1,0 +1,398 @@
+/* Minimalist Architecture Portfolio - style.css */
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #171717;
+    --accent-bg: #ffffff;
+    --border-color: #171717;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+body {
+    /* Changed from Archivo to Inter */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Custom Neon Cursor */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #26ff00;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s ease, transform 0.15s ease-out;
+    mix-blend-mode: exclusion;
+}
+
+.custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(2.5);
+}
+
+/* Nav Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4vw;
+    background-color: var(--bg-color);
+    z-index: 1000;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.nav-link {
+    margin-left: 3vw;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #666;
+}
+
+.logo {
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
+}
+
+/* Sections */
+.section {
+    padding: 100px 4vw 80px 4vw;
+    min-height: 100vh;
+    border-bottom: none;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+}
+
+/* Example font-weight usage: 800 for extremely heavy structural text */
+.hero-text-container h1 {
+    font-size: clamp(3rem, 7vw, 9rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-text-container p {
+    font-size: clamp(1.2rem, 2vw, 2.5rem);
+    font-weight: 200;
+}
+
+/* Works Grid */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+@media (max-width: 900px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background-color: #ffffff;
+}
+
+.grid-info {
+    background-color: transparent;
+    padding: 15px 0 0 0;
+    max-width: 80%;
+}
+
+.grid-info h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 300;
+    /* Adjusted for Inter */
+}
+
+.grid-info p {
+    font-size: 0.7rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* Image Grid Hover Effect */
+.image-grid-item-inner {
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
+
+.image-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-grid-item-inner:hover .image-grid-overlay {
+    opacity: 1;
+}
+
+.image-grid-title {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+}
+
+/* About / Contact blocks */
+/* 
+   We removed the .content-block entirely (which had the black border). 
+   Now we rely on plain divs with direct typography control. 
+*/
+.about-container {
+    max-width: 900px;
+    padding-top: 4vh;
+}
+
+.contact-container {
+    max-width: 900px;
+    padding-top: 4vh;
+}
+
+.contact-link {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: var(--text-color);
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: #666;
+}
+
+/* Gallery Overlay */
+.gallery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-overlay.hidden,
+.lightbox-overlay.hidden {
+    display: none;
+}
+
+.gallery-nav.fixed-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--bg-color);
+}
+
+.transparent-bar {
+    background-color: transparent !important;
+}
+
+.gallery-nav {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4vw;
+    border-bottom: none;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.gallery-close {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.gallery-nav-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.gallery-nav-title span {
+    font-weight: 300;
+    color: #666;
+    margin-left: 10px;
+}
+
+.gallery-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 100px 10vw 10vw 10vw;
+    overflow-y: auto;
+}
+
+/* Dynamic Info Grid */
+.project-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 10vh;
+    border-top: 2px solid var(--border-color);
+    padding-top: 30px;
+}
+
+.info-item h4 {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: pre-wrap;
+}
+
+/* Gallery Interleaved */
+.gallery-block-image {
+    width: 100%;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
+/*調整galley內的文字*/
+.gallery-block-text {
+    width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 300;
+    background: transparent;
+}
+
+/* Lightbox Base */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.lightbox-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--bg-color);
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    z-index: 3000;
+    pointer-events: none;
+}
+
+/* Lightbox Navigation Zones */
+.lightbox-nav-zone {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    width: 30%;
+    z-index: 3005;
+    display: flex;
+    align-items: center;
+}
+
+.lightbox-left {
+    left: 0;
+    padding-left: 5vw;
+    justify-content: flex-start;
+}
+
+.lightbox-right {
+    right: 0;
+    padding-right: 5vw;
+    justify-content: flex-end;
+}
+
+.lightbox-arrow {
+    font-size: 2.5rem;
+    color: #aaaaaa;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-nav-zone:hover .lightbox-arrow {
+    opacity: 0.6;
+}
