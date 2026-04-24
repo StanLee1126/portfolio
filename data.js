@@ -132,6 +132,10 @@ const portfolioData = {
                     type: "image", src: "./assets/project_ny/model/01_out.jpg",
                     width: "90%", align: "center", marginTop: "80px", caption: "10 / Model Image"
                 },
+                {/*Test*/
+                    type: "image", src: "./assets/photography_fuji/fuji_03.JPG",
+                    width: "90%", align: "center", marginTop: "80px", caption: "10 / Model Image"
+                },
 
 
             ]
