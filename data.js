@@ -68,7 +68,7 @@ const portfolioData = {
             info: {
                 "Site": "Brooklyn, New York, USA",
                 "Year": "2025",
-                "Team / Role": "Stan Lee \nWinnie \nMimi \nSeal Ke",
+                "Team": "Stan Lee \nWinnie \nMimi \nSeal Ke",
                 "Type": "Adaptive Reuse"
             },
             content: [
