@@ -31,31 +31,31 @@ const portfolioData = {
     images: [
         {
             title: "Gap",
-            cover: "./assets/photography_net/net_02.jpg",
+            cover: "./assets/photography_net/net_02.JPG",
             album: [
-                { src: "./assets/photography_net/net_02.jpg", caption: "明大前駅 2026" },
-                { src: "./assets/photography_net/net_01.jpg", caption: "明大前駅 2026" }
+                { src: "./assets/photography_net/net_02.JPG", caption: "明大前駅 2026" },
+                { src: "./assets/photography_net/net_01.JPG", caption: "明大前駅 2026" }
             ]
         },
         {
             title: "City of Lightness",
-            cover: "./assets/photography_look/look_01.jpg",
+            cover: "./assets/photography_look/look_01.JPG",
             album: [
-                { src: "./assets/photography_look/look_01.jpg", caption: "明大前駅 2026" },
-                { src: "./assets/photography_look/look_02.jpg", caption: "明大前駅 2026" },
-                { src: "./assets/photography_look/look_04.jpg", caption: "品川區 2026" },
-                { src: "./assets/photography_look/look_03.jpg", caption: "山梨縣 2026" }
+                { src: "./assets/photography_look/look_01.JPG", caption: "明大前駅 2026" },
+                { src: "./assets/photography_look/look_02.JPG", caption: "明大前駅 2026" },
+                { src: "./assets/photography_look/look_04.JPG", caption: "品川區 2026" },
+                { src: "./assets/photography_look/look_03.JPG", caption: "山梨縣 2026" }
             ]
         },
         {
             title: "不 死",
-            cover: "./assets/photography_fuji/fuji_04.jpg",
+            cover: "./assets/photography_fuji/fuji_04.JPG",
             album: [
-                { src: "./assets/photography_fuji/fuji_04.jpg", caption: "山中湖 2026" },
-                { src: "./assets/photography_fuji/fuji_02.jpg", caption: "河口湖 2026" },
-                { src: "./assets/photography_fuji/fuji_01.jpg", caption: "河口湖 2026" },
-                { src: "./assets/photography_fuji/fuji_05.jpg", caption: "河口湖 2026" },
-                { src: "./assets/photography_fuji/fuji_03.jpg", caption: "山中湖 2026" }
+                { src: "./assets/photography_fuji/fuji_04.JPG", caption: "山中湖 2026" },
+                { src: "./assets/photography_fuji/fuji_02.JPG", caption: "河口湖 2026" },
+                { src: "./assets/photography_fuji/fuji_01.JPG", caption: "河口湖 2026" },
+                { src: "./assets/photography_fuji/fuji_05.JPG", caption: "河口湖 2026" },
+                { src: "./assets/photography_fuji/fuji_03.JPG", caption: "山中湖 2026" }
             ]
         }
     ],
